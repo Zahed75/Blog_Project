@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from App_Login.models import *
 
 # Create your models here.
 
@@ -17,6 +18,12 @@ class Blog(models.Model):
 
     def __str__(self):
         return self.blog_title
+
+
+
+
+
+
 
 class Comment(models.Model):
     blog = models.ForeignKey(Blog, on_delete=models.CASCADE, related_name='blog_comment')
@@ -37,3 +44,22 @@ class Likes(models.Model):
 
     def __str__(self):
         return self.user + " likes " + self.blog
+
+
+
+
+
+class vaccation(models.Model):
+    team_mate=models.ForeignKey(Employee,on_delete=models.CASCADE,related_name='cutiya')
+    issue_name=models.CharField(max_length=400,default="true")
+    publish_date = models.DateTimeField(auto_now_add=True)
+    holiday_from=models.DateField()
+    holiday_to=models.DateField()
+
+    # def __str__(self) -> str:
+    #     return str('team_mate')
+
+    def __str__(self):
+        return str(self.team_mate)
+
+

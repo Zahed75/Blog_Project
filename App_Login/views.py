@@ -23,6 +23,10 @@ def sign_up(request):
     return render(request,'App_Login/sign_up.html',context=dict)
 
 
+
+
+
+
 def login_page(request):
     form = AuthenticationForm()
     if request.method == 'POST':
@@ -35,6 +39,11 @@ def login_page(request):
                 login(request, user)
                 return HttpResponseRedirect(reverse('index'))
     return render(request, 'App_Login/login.html', context={'form':form})
+
+
+
+
+
 
 
 @login_required
